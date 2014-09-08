@@ -15,7 +15,8 @@
 ###-------------------------------------------------------###
 # 	Grabs versions for pkgs & libs, stdout to logfile
 
-cd /root
+# cd /root
+cd /home/cpnfo
 
 nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d).log"
