@@ -36,25 +36,20 @@ nfolog="logtest.log"
 #}------: hostname :---------------------------------------->
 tmpStr=`uname -a | awk {'print $2'}`
 echo "hostname:$tmpStr" >> $nfolog
-
 #}------: os :---------------------------------------------->
 tmpStr=`cat /etc/redhat-release | awk {'print $4'}`
 echo "OS:$tmpStr" >> $nfolog
-
 #}------: kernel :------------------------------------------>
 tmpStr=`uname -a | awk {'print $3'}`
 echo "kernel:$tmpStr" >> $nfolog
-
 #}------: apache :------------------------------------------>
 tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'}`
 echo "apache:$tmpStr" >> $nfolog
 tmpStr=`httpd -v | grep Cpanel | awk {'print $2'}`
 echo "EasyApache:$tmpStr" >> $nfolog
-
 #}------: perl :-------------------------------------------->
 tmpStr=`perl -v | grep "v[[:digit:]]" | awk {'print $4'}`
 echo "perl:$tmpStr" >> $nfolog
-
 #}------: php :--------------------------------------------->
 tmpStr=`php -v | grep cli | awk {'print $2'}`
 echo "PHP:$tmpStr" >> $nfolog
@@ -68,11 +63,9 @@ tmpStr=`php -v | grep Guard | awk {'print $5'}`
 echo "ZendGuard:$tmpStr" >> $nfolog
 tmpStr=`php -v | grep Suhosin | awk {'print $3'}`
 echo "Suhosin:$tmpStr" >> $nfolog
-
 #}------: mysql :------------------------------------------->
 tmpStr=`mysql -V | awk {'print $5'}`
 echo "mysql:$tmpStr" >> $nfolog
-
 #}------: cpanel :------------------------------------------>
 tmpStr=`/usr/local/cpanel/cpanel -V`
 echo "cpanel:$tmpStr" >> $nfolog
