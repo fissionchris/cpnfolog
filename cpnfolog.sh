@@ -3,7 +3,7 @@
 
 ###-------------------------------------------------------###
   #------------:  Part 1: Remotely Connect  :-------------#
-  # 				Using Central Host   				  #
+  # 				        Using Central Host
 ###-------------------------------------------------------###
 # 	This could use any central hub as a host
 
@@ -13,7 +13,7 @@
 
 ###-------------------------------------------------------###
   #------------:  Part 2: Gather All Data  :--------------#
-  # 				Write to Std Format   				  #
+  # 				        Write to Std Format
 ###-------------------------------------------------------###
 # 	Gathers versions for relevant programs & libraries
 
@@ -80,7 +80,7 @@ echo "cpanel:$tmpStr" >> $nfolog
 
 ###-------------------------------------------------------###
   #------------:  Part 3: Capture Data  :-----------------#
-  # 			   Merge w/ Historical   				  #
+  # 			          Merge w/ Historical
 ###-------------------------------------------------------###
 
 #}------: transmit :---------------------------------------->
