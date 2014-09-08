@@ -17,8 +17,8 @@
 
 cd /root
 
-# nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
-nfolog="cpnfolog_$(date +%y%m%d).log"
+nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
+# nfolog="cpnfolog_$(date +%y%m%d).log"
 
 #}------: timestamp :--------------------------------------->
 # time/date stamp code here
