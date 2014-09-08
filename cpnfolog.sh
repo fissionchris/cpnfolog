@@ -18,7 +18,8 @@
 # cd /root
 cd /home/cpnfo
 
-nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
+nfolog="logtest_$(date +%m%d%H%M).log"
+# nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d).log"
 
 #}------: timestamp :--------------------------------------->
