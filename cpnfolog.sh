@@ -4,7 +4,7 @@
 ###-------------------------------------------------------###
   #------------:  Part 1: Remotely Connect  :-------------#
 ###-------------------------------------------------------###
-# 	This could use any central hub as a host
+#       This could use any central hub as a host
 
 #-----------------------------------------------------------#
 #############################################################
@@ -13,15 +13,18 @@
 ###-------------------------------------------------------###
   #------------:  Part 2: Gather All Data  :--------------#
 ###-------------------------------------------------------###
-# 	Grabs versions for pkgs & libs, stdout to logfile
+#       Grabs versions for pkgs & libs, stdout to logfile
 
+#}------------> Change to Scanner Folder
 # cd /root
 cd /home/cpnfo
 
+#}------------> Set & Initialize Logfile
 nfolog="logtest.log"
 # nfolog="logtest_$(date +%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d).log"
+echo /dev/null > $nfolog
 
 #}------: timestamp :--------------------------------------->
 # time/date stamp code here
@@ -36,20 +39,25 @@ nfolog="logtest.log"
 #}------: hostname :---------------------------------------->
 tmpStr=`uname -a | awk {'print $2'}`
 echo "hostname:$tmpStr" >> $nfolog
+
 #}------: os :---------------------------------------------->
 tmpStr=`cat /etc/redhat-release | awk {'print $4'}`
 echo "OS:$tmpStr" >> $nfolog
+
 #}------: kernel :------------------------------------------>
 tmpStr=`uname -a | awk {'print $3'}`
 echo "kernel:$tmpStr" >> $nfolog
+
 #}------: apache :------------------------------------------>
 tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'}`
 echo "apache:$tmpStr" >> $nfolog
 tmpStr=`httpd -v | grep Cpanel | awk {'print $2'}`
 echo "EasyApache:$tmpStr" >> $nfolog
+
 #}------: perl :-------------------------------------------->
 tmpStr=`perl -v | grep "v[[:digit:]]" | awk {'print $4'}`
 echo "perl:$tmpStr" >> $nfolog
+
 #}------: php :--------------------------------------------->
 tmpStr=`php -v | grep cli | awk {'print $2'}`
 echo "PHP:$tmpStr" >> $nfolog
@@ -63,9 +71,11 @@ tmpStr=`php -v | grep Guard | awk {'print $5'}`
 echo "ZendGuard:$tmpStr" >> $nfolog
 tmpStr=`php -v | grep Suhosin | awk {'print $3'}`
 echo "Suhosin:$tmpStr" >> $nfolog
+
 #}------: mysql :------------------------------------------->
 tmpStr=`mysql -V | awk {'print $5'}`
 echo "mysql:$tmpStr" >> $nfolog
+
 #}------: cpanel :------------------------------------------>
 tmpStr=`/usr/local/cpanel/cpanel -V`
 echo "cpanel:$tmpStr" >> $nfolog
@@ -80,5 +90,5 @@ echo "cpanel:$tmpStr" >> $nfolog
 ###-------------------------------------------------------###
 
 #}------: transmit :---------------------------------------->
-# code to send results log to an email, scp to central 
+# code to send results log to an email, scp to central
 # server, and/or write results to db
