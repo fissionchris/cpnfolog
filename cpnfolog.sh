@@ -63,19 +63,19 @@ echo "perl:$tmpStr" >> $nfolog
 #}------: php :--------------------------------------------->
 tmpStr=`php -v | grep cli | awk {'print $2'}`
 echo "PHP:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep Engine | awk {'print $3'}`
+tmpStr=`php -v | grep Engine | awk {'print $3'} | sed '$s/.$//'`
 echo "ZendEngine:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep eAccelerator | awk {'print $3'}`
+tmpStr=`php -v | grep eAccelerator | awk {'print $3'} | sed '$s/.$//'`
 echo "eAccelerator:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep ionCube | awk {'print $6'}`
+tmpStr=`php -v | grep ionCube | awk {'print $6'} | sed '$s/.$//'`
 echo "ionCube:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep Guard | awk {'print $5'}`
+tmpStr=`php -v | grep Guard | awk {'print $5'} | sed '$s/.$//'`
 echo "ZendGuard:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep Suhosin | awk {'print $3'}`
+tmpStr=`php -v | grep Suhosin | awk {'print $3'} | sed '$s/.$//'`
 echo "Suhosin:$tmpStr" >> $nfolog
 
 #}------: mysql :------------------------------------------->
-tmpStr=`mysql -V | awk {'print $5'}`
+tmpStr=`mysql -V | awk {'print $5'} | sed '$s/.$//'`
 echo "mysql:$tmpStr" >> $nfolog
 
 #}------: cpanel :------------------------------------------>
