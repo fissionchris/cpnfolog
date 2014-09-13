@@ -20,11 +20,13 @@
 cd /home/cpnfo
 
 #}------------> Set & Initialize Logfile
-nfolog="logtest.log"
+# nfolog="logtest.log"
 # nfolog="logtest_$(date +%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d).log"
-echo /dev/null > $nfolog
+# echo /dev/null > $nfolog
+tmpStr=`hostname | cut -d '.' -f1`
+$nfolog="log.$tmpStr"
 
 #}------: timestamp :--------------------------------------->
 # time/date stamp code here
