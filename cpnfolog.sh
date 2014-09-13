@@ -38,7 +38,7 @@ echo /dev/null > $nfolog
 
 #}------: hostname :---------------------------------------->
 #tmpStr=`uname -a | awk {'print $2'}`
-tmpStr=`hostname | cut -d '.'`
+tmpStr=`hostname | cut -d '.' -f1`
 echo "hostname:$tmpStr" >> $nfolog
 
 #}------: os :---------------------------------------------->
