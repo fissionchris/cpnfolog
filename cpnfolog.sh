@@ -50,7 +50,8 @@ tmpStr=`uname -a | awk {'print $3'}`
 echo "kernel:$tmpStr" >> $nfolog
 
 #}------: apache :------------------------------------------>
-tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'}` | cut -d '/' -f-
+#tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'} | cut -d '/' -f-`
+tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'} | rev | cut -d '/' -f1 | rev`
 echo "apache:$tmpStr" >> $nfolog
 tmpStr=`httpd -v | grep Cpanel | awk {'print $2'}`
 echo "EasyApache:$tmpStr" >> $nfolog
