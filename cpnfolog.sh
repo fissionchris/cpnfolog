@@ -57,21 +57,21 @@ tmpStr=`httpd -v | grep Cpanel | awk {'print $2'}`
 echo "EasyApache:$tmpStr" >> $nfolog
 
 #}------: perl :-------------------------------------------->
-tmpStr=`perl -v | grep "v[[:digit:]]" | awk {'print $4'}`
+tmpStr=`perl -v | grep "v[[:digit:]]" | awk {'print $4'} | sed 's/^.//'`
 echo "perl:$tmpStr" >> $nfolog
 
 #}------: php :--------------------------------------------->
 tmpStr=`php -v | grep cli | awk {'print $2'}`
 echo "PHP:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep Engine | awk {'print $3'} | sed '$s/.$//'`
+tmpStr=`php -v | grep Engine | awk {'print $3'} | sed 's/^.//' | sed 's/.$//'`
 echo "ZendEngine:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep eAccelerator | awk {'print $3'} | sed '$s/.$//'`
+tmpStr=`php -v | grep eAccelerator | awk {'print $3'} | sed 's/^.//' | sed 's/.$//'`
 echo "eAccelerator:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep ionCube | awk {'print $6'} | sed '$s/.$//'`
+tmpStr=`php -v | grep ionCube | awk {'print $6'} | sed 's/^.//' | sed 's/.$//'`
 echo "ionCube:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep Guard | awk {'print $5'} | sed '$s/.$//'`
+tmpStr=`php -v | grep Guard | awk {'print $5'} | sed 's/^.//' | sed 's/.$//'`
 echo "ZendGuard:$tmpStr" >> $nfolog
-tmpStr=`php -v | grep Suhosin | awk {'print $3'} | sed '$s/.$//'`
+tmpStr=`php -v | grep Suhosin | awk {'print $3'} | sed 's/^.//' | sed 's/.$//'`
 echo "Suhosin:$tmpStr" >> $nfolog
 
 #}------: mysql :------------------------------------------->
