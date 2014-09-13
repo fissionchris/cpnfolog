@@ -79,7 +79,8 @@ tmpStr=`mysql -V | awk {'print $5'} | sed '$s/.$//'`
 echo "mysql:$tmpStr" >> $nfolog
 
 #}------: cpanel :------------------------------------------>
-tmpStr=`/usr/local/cpanel/cpanel -V`
+#tmpStr=`/usr/local/cpanel/cpanel -V | sed 's/"\ \(build\ "//'`
+tmpStr=`/usr/local/cpanel/cpanel -V | sed 's/\ (build\ /\./' | sed 's/.$//'`
 echo "cpanel:$tmpStr" >> $nfolog
 
 
