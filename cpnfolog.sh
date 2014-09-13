@@ -20,13 +20,11 @@
 cd /home/cpnfo
 
 #}------------> Set & Initialize Logfile
-# nfolog="logtest.log"
+nfolog="logtest.`hostname | cut -d '.' -f1`"
 # nfolog="logtest_$(date +%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d%H%M).log"
 # nfolog="cpnfolog_$(date +%y%m%d).log"
-# echo /dev/null > $nfolog
-tmpStr=`hostname | cut -d '.' -f1`
-$nfolog="log.$tmpStr"
+
 
 #}------: timestamp :--------------------------------------->
 # time/date stamp code here
@@ -52,7 +50,7 @@ tmpStr=`uname -a | awk {'print $3'}`
 echo "kernel:$tmpStr" >> $nfolog
 
 #}------: apache :------------------------------------------>
-tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'}`
+tmpStr=`httpd -v | grep Apache\/ | awk {'print $3'}` | cut -d '/' -f-
 echo "apache:$tmpStr" >> $nfolog
 tmpStr=`httpd -v | grep Cpanel | awk {'print $2'}`
 echo "EasyApache:$tmpStr" >> $nfolog
