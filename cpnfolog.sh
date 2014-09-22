@@ -74,9 +74,12 @@ echo "ZendGuard:$tmpStr" >> $nfolog
 tmpStr=`php -v | grep Suhosin | awk {'print $3'} | sed 's/^.//' | sed 's/.$//'`
 echo "Suhosin:$tmpStr" >> $nfolog
 
-#}------: mysql :------------------------------------------->
+#}------: database :---------------------------------------->
 tmpStr=`mysql -V | awk {'print $5'} | sed '$s/.$//'`
 echo "mysql:$tmpStr" >> $nfolog
+#tmpStr=`mysql -V | awk {'print $5'} | sed '$s/.$//'`
+tmpStr=`cat /var/lib/pgsql/data/PG_VERSION | sed '$s/.$//'`
+echo "pgsql:$tmpStr" >> $nfolog
 
 #}------: cpanel :------------------------------------------>
 #tmpStr=`/usr/local/cpanel/cpanel -V | sed 's/"\ \(build\ "//'`
