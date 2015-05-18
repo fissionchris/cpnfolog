@@ -45,6 +45,10 @@ echo "hostname:$hostStr" > $nfolog
 osStr=`cat /etc/redhat-release | awk {'print $4'}`
 echo "OS:$osStr" >> $nfolog
 
+#}------: BASH :---------------------------------------------->
+bashStr=`bash --version | head -n 1 | awk '{ print $4}'`
+echo "BASH:$bashStr" >> $nfolog
+
 #}------: kernel :------------------------------------------>
 kernStr=`uname -a | awk {'print $3'}`
 echo "kernel:$kernStr" >> $nfolog
